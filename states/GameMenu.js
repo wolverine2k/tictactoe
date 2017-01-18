@@ -1,11 +1,13 @@
-var GameMenu = function() {};
+var GameMenu = function() {
+  this.startWithX = true;
+};
 
 
 GameMenu.prototype = {
 
   menuConfig: {
     startY: 260,
-    startX: 30
+    startX: 260
   },
 
   init: function () {
@@ -31,18 +33,26 @@ GameMenu.prototype = {
     game.add.sprite(0, 0, 'menu-bg');
     game.add.existing(this.titleText);
 
+    this.addMenuOption(this.startWithX ? 'Start As X' : 'Start As O', function (target) {
+      this.startWithX = !this.startWithX;
+      target.text = this.startWithX ? 'Start As X' : 'Start As O';
+    });
+
     this.addMenuOption('One Player', function () {
-      game.state.start("singlePlayer");
+      game.state.start("SinglePlayer");
     });
     this.addMenuOption('Two Player', function () {
-      game.state.start("twoPlayer");
+      game.state.start("TwoPlayers");
     });
-/*
-    this.addMenuOption('Credits', function () {
-      game.state.start("Credits");
-    });
-*/
-  }
+  },
+
+  pressButtonX: function () {
+      this.startWithX = true;
+  },
+
+  pressButtonO: function () {
+      this.startWithX = false;
+  },
 };
 
 Phaser.Utils.mixinPrototype(GameMenu.prototype, mixins);

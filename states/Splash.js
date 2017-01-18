@@ -7,10 +7,9 @@ Splash.prototype = {
     game.load.script('mixins', 'lib/mixins.js');
     game.load.script('WebFont', 'vendor/webfontloader.js');
     game.load.script('gamemenu','states/GameMenu.js');
-    game.load.script('game', 'states/Game.js');
-    game.load.script('gameover','states/GameOver.js');
-    game.load.script('credits', 'states/Credits.js');
-    game.load.script('options', 'states/Options.js');
+    game.load.script('startgame','states/StartGame.js');
+    game.load.script('singleplayer','states/SinglePlayer.js');
+    game.load.script('twoplayers','states/TwoPlayers.js');
   },
 
   loadBgm: function () {
@@ -58,10 +57,8 @@ Splash.prototype = {
   addGameStates: function () {
 
     game.state.add("GameMenu",GameMenu);
-    /*game.state.add("Game",Game);
-    game.state.add("GameOver",GameOver);
-    game.state.add("Credits",Credits);
-    game.state.add("Options",Options);*/
+    game.state.add("SinglePlayer",SinglePlayer);
+    game.state.add("TwoPlayers",TwoPlayers);
   },
 
   addGameMusic: function () {
