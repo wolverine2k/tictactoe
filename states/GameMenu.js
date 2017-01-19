@@ -1,5 +1,6 @@
 var GameMenu = function() {
   this.startWithX = true;
+  this.gameTypeSingle = true;
 };
 
 
@@ -39,20 +40,14 @@ GameMenu.prototype = {
     });
 
     this.addMenuOption('One Player', function () {
-      game.state.start("SinglePlayer");
+      this.gameTypeSingle = true;
+      game.state.start("StartGame");
     });
     this.addMenuOption('Two Player', function () {
-      game.state.start("TwoPlayers");
+      this.gameTypeSingle = false;
+      game.state.start("StartGame");
     });
-  },
-
-  pressButtonX: function () {
-      this.startWithX = true;
-  },
-
-  pressButtonO: function () {
-      this.startWithX = false;
-  },
+  }
 };
 
 Phaser.Utils.mixinPrototype(GameMenu.prototype, mixins);

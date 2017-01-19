@@ -8,8 +8,6 @@ Splash.prototype = {
     game.load.script('WebFont', 'vendor/webfontloader.js');
     game.load.script('gamemenu','states/GameMenu.js');
     game.load.script('startgame','states/StartGame.js');
-    game.load.script('singleplayer','states/SinglePlayer.js');
-    game.load.script('twoplayers','states/TwoPlayers.js');
   },
 
   loadBgm: function () {
@@ -21,6 +19,7 @@ Splash.prototype = {
   loadImages: function () {
     game.load.image('menu-bg', 'assets/images/menu-bg.jpg');
     game.load.image('options-bg', 'assets/images/options-bg.jpg');
+    game.load.image('gameover-bg', 'assets/images/square.jpg');
     game.load.image('gameover-bg', 'assets/images/gameover-bg.jpg');
   },
 
@@ -55,10 +54,8 @@ Splash.prototype = {
   },
 
   addGameStates: function () {
-
     game.state.add("GameMenu",GameMenu);
-    game.state.add("SinglePlayer",SinglePlayer);
-    game.state.add("TwoPlayers",TwoPlayers);
+    game.state.add("StartGame",StartGame);
   },
 
   addGameMusic: function () {
